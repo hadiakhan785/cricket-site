@@ -1,10 +1,15 @@
 let months = ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 function initialize() {
+
+    $('.spinner').show();
     $.ajax({
         url: `https://newsapi.org/v2/everything?sources=espn-cric-info&apiKey=79c794b797384c589d86219fff3b24d5`,
         success: function (data) {
             console.log(data);
+
+        $('.spinner').hide();
+            
             let newsBox = document.querySelector(".news-container");
 
             for (let i = 0; i < data.articles.length; i++) {
@@ -46,7 +51,10 @@ function initialize() {
             }
         },
         error: function (err) {
-            console.log(err);
+            let newsBox = document.querySelector(".news-container");
+            newsBox.innerHTML = "Something Went Wrong";
+            $('.spinner').hide();
+            
         }
     });
 }

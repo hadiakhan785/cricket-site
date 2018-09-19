@@ -5,11 +5,6 @@ body, html{
 
 body{
     font-family: 'Lato', sans-serif;
-    background-image: url('cric-bg.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
 }
 
 .main-container{
@@ -24,16 +19,24 @@ body{
 
 .main-container > header{
     grid-column: 1 /-1;
-    height: 100px;;
+    height: 50vh;
+    background-image: url('images/header-bg.jpg');
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    margin-bottom: 1em;
 }
+
 
 nav {
     width: 100%;
     display: flex;
-    background-color: #D50000;
+    background-color: rgba(0, 0, 0, 0.4);
     justify-content: space-around;
     position: fixed;
     top: 0;
+
 }
 
 .logo-container{
@@ -55,29 +58,24 @@ nav {
     font-weight: 900;
     margin-left: 5px;
     color: white;
-    font-size: 1em;
-    width: 300px;
+    font-size: 1.5em;
+    font-family: 'Archivo Black', sans-serif;
+    text-align: center;
 }
 
 .logo-text > h4 {
     font-size: 1em;
 }
 
-ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    width: 100%;
-    display: inline-block;
-    text-align: right;
+.hamburger{
+    color: #FAFAFA;
 }
 
 li{
-    display: inline-block;
     padding: 0.5em;
     margin: 0.5em;
-}
+    text-align: center;
+} 
 
 li a {
     text-decoration: none;
@@ -86,11 +84,10 @@ li a {
 }
 
 li:hover {
-    /* background-color: black;*/
     cursor: pointer; 
-    -moz-box-shadow:    inset 0 0 8px rgba(0,0,0, 0.4);
-    -webkit-box-shadow: inset 0 0 8px rgba(0,0,0, 0.4);
-    box-shadow:         inset 0 0 8px rgba(0,0,0, 0.4);
+    -moz-box-shadow:    inset 0 0 8px rgba(0,0,0, 0.6);
+    -webkit-box-shadow: inset 0 0 8px rgba(0,0,0, 0.6);
+    box-shadow:         inset 0 0 8px rgba(0,0,0, 0.6);
     border-radius: 8px;
 }
 
@@ -113,42 +110,61 @@ li a:hover{
     width: 100%;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.3);
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     margin-top: 8px;
+    margin-bottom: 50px;
 }
 
-.title {
+.title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.title-heading {
     background-color: #FAFAFA;
     color: #D50000;
     text-align: center;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+}
+
+hr {
+    border: none;
+    height: 4px;
+    width: 100px;
+    background-color: #D50000;
+}
+
+.spinner{
+    height: 50px;
+    width: 50px;    
+    background-image: url('images/loading-gif-png-1.gif');
+    background-position: center;
+    background-size: cover;
+    margin: auto;
+    z-index: 2;
 }
 
 .news-container{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
+    padding: 50px 0;
 }
 
 .news-item{
-    height: 100px;
+    height: 120px;
     width: 40%;
     background-color: rgba(255, 255, 255, 0.5);
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-    margin-bottom: 8px;
+    -webkit-box-shadow: 0px 0px 4px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 4px -1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 4px -1px rgba(0,0,0,0.75);
+    margin-bottom: 1em;
     display: flex;
     align-items: flex-start;
 }
 
 .news-img{
-    height: 100px;
-    width: 100px;
+    height: 120px;
+    width: 120px;
     background-position: center;
     background-size: cover;
 }
@@ -157,7 +173,7 @@ li a:hover{
     margin-left: 8px;
     display: flex;
     flex-direction: column;
-    height: 100px;
+    height: 120px;
 }
 
 .news-title > h3{
@@ -172,6 +188,10 @@ li a:hover{
     font-weight: 600;
 }
 
+.news-description a {
+    color: #D50000;
+}
+
 .publish-time{
     margin-top: auto;
 }
@@ -182,7 +202,32 @@ li a:hover{
 
 }
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 1208px){
+    .news-item, .news-body, .news-img{
+        height: 150px;
+    }
+
+    .news-img{
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 1055px){
+    
+    .news-item{
+        display: flex;
+        flex-direction: column;
+        height: 300px;
+        padding: 0;
+    }
+
+    .news-head, .news-img{
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 768px){
     .main-container{
         display: grid;
         grid-template-columns: 8px 1fr 8px;
@@ -192,8 +237,76 @@ li a:hover{
         grid-column: 2;
         min-width: 0;
     }
+
+
 }
 
+@media screen and (max-width: 600px){
+    .main-container > header{
+        height: 30vh;
+        background-position: top;
+    }
+    .title-heading{
+        font-size: 1.5em;
+        margin-bottom: 0;
+    }
+
+    hr{
+        height: 3px;
+        width: 50px;
+    }
+
+    .news-container{
+        padding: 10px 0;
+    }
+    
+    .news-item{
+        flex-direction: row;
+        justify-content: flex-start;
+        height: 150px;
+        width: 100%;
+    }
+
+    .news-head, .news-img{
+        width: 200px;
+    }
+
+}
+
+@media screen and (max-width: 480px){
+    .news-head, .news-img{
+        width: 150px; 
+    }
+
+    .logo-text > h4 {
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (max-width: 390px){
+    .news-item, .news-img, .news-body {
+        height: 120px;
+    }
+
+    .news-head, .news-img{
+        width: 120px;
+    }
+
+    .news-title {
+        font-size: 0.8em;
+    }
+
+    .news-description {
+        font-size: 0.6em;
+    }
+}
+
+@media screen and (max-width: 330px){
+    
+    .news-img, .news-head{
+        width: 100px;
+    }
+}
 
 
 
