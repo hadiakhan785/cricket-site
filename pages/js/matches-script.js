@@ -5,7 +5,7 @@ function initialize() {
     $('.spinner').show();
 
     $.ajax({
-        url: `http://cricapi.com/api/matches?apikey=60A6H8V6czf4VXXufsrvdl5hEbH2`,
+        url: `https://cricapi.com/api/matches?apikey=60A6H8V6czf4VXXufsrvdl5hEbH2`,
         success: function (data) {
             console.log(data);
 
