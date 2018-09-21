@@ -231,6 +231,10 @@ hr {
     .schedule-container{
         padding: 10px 0;
     }
+
+    .teams-name {
+        height: 55px;
+    }
 }
 
 @media screen and (max-width: 500px){
