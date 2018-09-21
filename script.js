@@ -51,9 +51,10 @@ function initialize() {
             }
         },
         error: function (err) {
+            $('.spinner').hide();
             let newsBox = document.querySelector(".news-container");
             newsBox.innerHTML = "Something Went Wrong";
-            $('.spinner').hide();
+            
             
         }
     });

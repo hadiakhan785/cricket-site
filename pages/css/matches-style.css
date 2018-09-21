@@ -1,0 +1,246 @@
+body, html{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+}
+
+.main-container{
+    display: grid;
+    grid-template-columns: 80px 1fr 80px;
+}
+
+.main-container > * {
+    grid-column: 2;
+    min-width: 0;
+}
+
+.main-container > header{
+    grid-column: 1 /-1;
+    height: 30vh;
+    background-image: url('../../images/header-bg.jpg');
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    margin-bottom: 1em;
+}
+
+
+nav {
+    width: 100%;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+
+}
+
+.logo-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-text{
+    font-weight: 900;
+    margin-left: 5px;
+    color: white;
+    font-size: 1.5em;
+    font-family: 'Archivo Black', sans-serif;
+    text-align: center;
+}
+
+.logo-text > h4 {
+    font-size: 1em;
+}
+
+.hamburger{
+    color: #FAFAFA;
+}
+
+li{
+    padding: 0.5em;
+    margin: 0.5em;
+    text-align: center;
+} 
+
+li a {
+    text-decoration: none;
+    color: white;
+    
+}
+
+li:hover {
+    cursor: pointer; 
+    -moz-box-shadow:    inset 0 0 8px rgba(0,0,0, 0.6);
+    -webkit-box-shadow: inset 0 0 8px rgba(0,0,0, 0.6);
+    box-shadow:         inset 0 0 8px rgba(0,0,0, 0.6);
+    border-radius: 8px;
+}
+
+li:hover a{
+    color: #FAFAFA;    
+}
+
+li a:hover{
+    text-decoration: none;
+}
+
+.active {
+    -moz-box-shadow:    inset 0 0 8px #000000;
+    -webkit-box-shadow: inset 0 0 8px #000000;
+    box-shadow:         inset 0 0 8px #000000;
+    border-radius: 8px;
+}
+
+.matches-schedule-section{
+    width: 100%;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin-top: 8px;
+    margin-bottom: 50px;
+}
+
+.title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.title-heading {
+    background-color: #FAFAFA;
+    color: #D50000;
+    text-align: center;
+}
+
+hr {
+    border: none;
+    height: 4px;
+    width: 100px;
+    background-color: #D50000;
+}
+
+.spinner{
+    height: 50px;
+    width: 50px;    
+    background-image: url('../../images/loading-gif-png-1.gif');
+    background-position: center;
+    background-size: cover;
+    margin: auto;
+    z-index: 2;
+}
+
+.schedule-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.schedule-item {
+    height: 120px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: 0px 0px 4px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 4px -1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 4px -1px rgba(0,0,0,0.75);
+    margin-bottom: 1em;
+    display: flex;
+    align-items: flex-start;
+}
+
+.match-date{
+    height: 120px;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid rgba(0,0,0,0.3);
+    font-weight: bold;
+    color: #212121;
+}
+
+.match-detail{
+    height: 120px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.teams-name {
+    background-color: #D50000;
+    color: white;
+    font-size: 1.5em;
+}
+
+.teams-name, .match-time, .match-type {
+    margin-bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.teams-name, .match-time{
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+
+.match-time, .match-type{
+    color: #616161;        
+}
+
+.match-time > p {
+    text-align: center;
+}
+
+.match-detail > p {
+    font-weight: bold;
+}
+
+.match-start-time, .type{
+    font-weight: 500;
+}
+
+@media screen and (max-width: 768px){
+    .main-container{
+        display: grid;
+        grid-template-columns: 8px 1fr 8px;
+    }
+
+    .main-container > * {
+        grid-column: 2;
+        min-width: 0;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .title-heading{
+        font-size: 1.5em;
+        margin-bottom: 0;
+    }
+
+    hr{
+        height: 3px;
+        width: 50px;
+    }
+
+    .schedule-container{
+        padding: 10px 0;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .teams-name{
+        font-size: 1em;
+    }
+
+    .match-time, .match-type, .match-date{
+        font-size: small;
+    }
+
+}
+
