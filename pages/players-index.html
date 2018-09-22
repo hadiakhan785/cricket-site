@@ -16,6 +16,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
         crossorigin="anonymous">
 
+    <!-- Chart.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+
     <!-- bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
@@ -89,7 +95,7 @@
                 <div class="search-boxes">
                     <div class="search-player-id">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" id="id-inp" placeholder="Enter Player Name" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <input type="text" class="form-control" id="id-inp" placeholder="Enter Player Name" aria-label="Recipient's username" aria-describedby="button-addon2" onkeypress="if(event.keyCode == 13){showID();}">
                             <div class="input-group-append">
                                 <button class="btn btn-outline-secondary" type="button" id="button-addon2 id-search" onclick="showID()">
                                     <i class="fas fa-search"></i>
@@ -101,7 +107,7 @@
 
                 <div class="search-player-info">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="name-inp" placeholder="Enter Player Id" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <input type="text" class="form-control" id="name-inp" placeholder="Enter Player Id" aria-label="Recipient's username" aria-describedby="button-addon2" onkeypress="if(event.keyCode == 13){showInfo();}">
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button" id="button-addon2 info-search" onclick="showInfo()">
                                 <i class="fas fa-search"></i>
