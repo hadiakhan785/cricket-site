@@ -138,7 +138,7 @@ function showInfo() {
                 data: {
                     labels: [],
                     datasets: [{
-                        label: 'Bowling ODI',
+                        label: 'ODIs Bowling',
                         data: [],
                         backgroundColor: [
                             'rgba(255, 99, 132, 1)',
