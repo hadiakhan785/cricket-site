@@ -16,7 +16,7 @@ function showID() {
             let idBox = document.querySelector(".id-info-container");
             idBox.innerHTML = "";
             for (let i = 0; i < info.data.length; i++) {
-                idBox.innerHTML += `<div class="id-info-item" data-aos="zoom-out-up" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+                idBox.innerHTML += `<div class="id-info-item" data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
                         <p class="player-name">${info.data[i].fullName}</p>
                         <p class="player-id">${info.data[i].pid}</p>
                     </div>`;
