@@ -16,7 +16,7 @@ function showID() {
             let idBox = document.querySelector(".id-info-container");
             idBox.innerHTML = "";
             for (let i = 0; i < info.data.length; i++) {
-                idBox.innerHTML += `<div class="id-info-item" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+                idBox.innerHTML += `<div class="id-info-item" data-aos="zoom-out-up" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
                         <p class="player-name">${info.data[i].fullName}</p>
                         <p class="player-id">${info.data[i].pid}</p>
                     </div>`;
@@ -50,7 +50,7 @@ function showInfo() {
             $('.spinner').hide();
             playerInfoBox.innerHTML = "";
             playerInfoBox.innerHTML = `
-                <div class="player-info-item" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+                <div class="player-info-item" data-aos="zoom-out-up" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
                     <div class="info-head">
                         <div class="player-img" style="background-image: url(${info.imageURL});">
 
