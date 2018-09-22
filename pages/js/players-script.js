@@ -16,7 +16,7 @@ function showID() {
             let idBox = document.querySelector(".id-info-container");
             idBox.innerHTML = "";
             for (let i = 0; i < info.data.length; i++) {
-                idBox.innerHTML += `<div class="id-info-item">
+                idBox.innerHTML += `<div class="id-info-item" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
                         <p class="player-name">${info.data[i].fullName}</p>
                         <p class="player-id">${info.data[i].pid}</p>
                     </div>`;
@@ -50,7 +50,7 @@ function showInfo() {
             $('.spinner').hide();
             playerInfoBox.innerHTML = "";
             playerInfoBox.innerHTML = `
-                <div class="player-info-item">
+                <div class="player-info-item" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
                     <div class="info-head">
                         <div class="player-img" style="background-image: url(${info.imageURL});">
 
@@ -115,13 +115,16 @@ function showInfo() {
                             </span>
                         </div>
 
-                        <div>
+                        <div class="p-stats">
                             <canvas id="bowling-chart" width="400" height="400"></canvas>
+                            <canvas id="batting-chart" width="400" height="400"></canvas>
                         </div>
 
                     </div>
                 </div>`;
 
+
+            //for ODI Bowling
             let bowling = parseInt(info.data.bowling.ODIs["4w"]);
             let fiveWickets = parseInt(info.data.bowling.ODIs["5w"]);
             let average = parseInt(info.data.bowling.ODIs["Ave"]);
@@ -139,19 +142,19 @@ function showInfo() {
                         data: [],
                         backgroundColor: [
                             'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
+                            'rgba(251, 233, 231, 1)',
+                            'rgba(191, 54, 12, 1)',
                             'rgba(239, 154, 154, 1)',
                             'rgba(229, 57, 53, 1)',
-                            'rgba(97, 97, 97, 1)'
+                            'rgba(244, 81, 30, 1)'
                         ],
                         borderColor: [
-                            'rgba(255,99,132,1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(251, 233, 231, 1)',
+                            'rgba(191, 54, 12, 1)',
                             'rgba(239, 154, 154, 1)',
                             'rgba(229, 57, 53, 1)',
-                            'rgba(97, 97, 97, 1)'
+                            'rgba(244, 81, 30, 1)'
                         ],
                         borderWidth: 1
                     }]
@@ -182,6 +185,68 @@ function showInfo() {
             addData(bowlingChart, "Balls", balls);
             addData(bowlingChart, "Runs", runs);
             addData(bowlingChart, "Wicket", wickets);
+
+            //for ODI batting
+            let fours = parseInt(info.data.batting.ODIs["4s"]);
+            let sixes = parseInt(info.data.batting.ODIs["6s"]);
+            let aver = parseInt(info.data.batting.ODIs["Ave"]);
+            let highScores = parseInt(info.data.batting.ODIs["HS"]);
+            let runsBatting = parseInt(info.data.batting.ODIs["Runs"]);
+            let innings = parseInt(info.data.batting.ODIs["Inns"]);
+
+            var ctx = document.getElementById("batting-chart").getContext('2d');
+            var battingChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'ODIs Batting',
+                        data: [],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(251, 233, 231, 1)',
+                            'rgba(191, 54, 12, 1)',
+                            'rgba(239, 154, 154, 1)',
+                            'rgba(229, 57, 53, 1)',
+                            'rgba(244, 81, 30, 1)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(251, 233, 231, 1)',
+                            'rgba(191, 54, 12, 1)',
+                            'rgba(239, 154, 154, 1)',
+                            'rgba(229, 57, 53, 1)',
+                            'rgba(244, 81, 30, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+
+            function addData(chart, label, data) {
+                chart.data.labels.push(label);
+                chart.data.datasets.forEach((dataset) => {
+                    dataset.data.push(data);
+                });
+                chart.update();
+            }
+
+            addData(battingChart, "4s", fours);
+            addData(battingChart, "6s", sixes);
+            addData(battingChart, "Ave", aver);
+            addData(battingChart, "HS", highScores);
+            addData(battingChart, "Runs", runsBatting);
+            addData(battingChart, "Inns", innings);
         },
 
         error: function (err) {

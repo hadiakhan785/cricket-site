@@ -186,9 +186,6 @@ hr {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    /* -webkit-box-shadow: 0px 0px 4px -1px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 4px -1px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 4px -1px rgba(0,0,0,0.75); */
     color: #212121;
 }
 
@@ -233,6 +230,16 @@ hr {
 
 .player-info-item span {
     font-weight: 500;
+}
+
+.p-stats {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.p-stats > canvas {
+    display: inline-block;
 }
 
 @media screen and (max-width: 1091px){
