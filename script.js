@@ -11,7 +11,7 @@ function initialize() {
         $('.spinner').hide();
             
             let newsBox = document.querySelector(".news-container");
-
+            newsBox.innerHTML = "";
             for (let i = 0; i < data.articles.length; i++) {
 
                 if (data.articles[i].title.length > 80) {

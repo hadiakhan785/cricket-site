@@ -12,7 +12,7 @@ function initialize() {
             let scheduleBox = document.querySelector('.schedule-container');
 
             $('.spinner').hide();
-
+            scheduleBox.innerHTML = "";
             for (let i = 0; i < data.matches.length; i++) {
 
                 const dateObject = new Date(data.matches[i].date);
@@ -54,7 +54,8 @@ function initialize() {
             console.log(err);
 
             $('.spinner').hide();
-
+            let scheduleBox = document.querySelector('.schedule-container');
+            scheduleBox.innerHTML = "Something went wrong";
         }
 
     });
